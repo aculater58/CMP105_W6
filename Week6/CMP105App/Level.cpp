@@ -5,6 +5,12 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	window = hwnd;
 	input = in;
 
+	Tball.loadFromFile("gfx/Beach_Ball.png");
+
+	ball.setInput(input);
+	ball.setTexture(&Tball);
+	ball.setSize(sf::Vector2f(100, 100));
+	ball.setPosition(40, 0);
 	// initialise game objects
 
 }
@@ -30,6 +36,8 @@ void Level::update(float dt)
 void Level::render()
 {
 	beginDraw();
+
+	window->draw(ball);
 
 	endDraw();
 }
