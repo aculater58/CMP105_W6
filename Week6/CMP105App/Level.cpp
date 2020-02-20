@@ -1,6 +1,7 @@
 #include "Level.h"
 
-Level::Level(sf::RenderWindow* hwnd, Input* in)
+Level::Level(sf::RenderWindow* hwnd, Input* in):
+	ball(hwnd)
 {
 	window = hwnd;
 	input = in;
@@ -10,7 +11,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	ball.setInput(input);
 	ball.setTexture(&Tball);
 	ball.setSize(sf::Vector2f(100, 100));
-	ball.setPosition(40, 0);
+	ball.setPosition(0, 0);
 	// initialise game objects
 
 }
@@ -23,13 +24,14 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-
+	ball.handleInput(dt);
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-
+	// **new**
+	ball.update(dt);
 }
 
 // Render level
